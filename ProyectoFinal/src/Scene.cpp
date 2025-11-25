@@ -7,8 +7,10 @@ void Scene::init(int selection){
     //Inicializacion de ProgramShader 
     ShaderProgram* m_shaderProgram = new ShaderProgram("shaders/vertex_shader.glsl","shaders/frag_shader.glsl");
     ShaderProgram* m_shaderProgram2 = new ShaderProgram("shaders/vertex_shader2.glsl","shaders/frag_shader2.glsl");
+    ShaderProgram* m_shaderProgram3 = new ShaderProgram("shaders/vertex_shader3.glsl","shaders/frag_shader3.glsl");
     m_shaderPrograms.push_back(m_shaderProgram);
     m_shaderPrograms.push_back(m_shaderProgram2);
+    m_shaderPrograms.push_back(m_shaderProgram3);
     //Se inicializan todos los modelos a usar
     m_axes = new Axes(m_shaderPrograms[0]);
      if (selection == 1){
@@ -21,6 +23,7 @@ void Scene::init(int selection){
         f = new Cone();
         m_model = new Grid(m_shaderPrograms[1],100,100,f,100.0f,0.022f);
     }
+    m_gradient = new Gradient(m_shaderPrograms[2],100,100);
     //Function* g = new Exponential();
     //std::cout << "Cargando función 2\n";
     //Model* model7 = new Grid(m_shaderPrograms[1],100,100,g,50.0f,0.022f);
@@ -72,8 +75,11 @@ void Scene::render()  {
         }
 
         // se dibujan los modelos
-        m_model->renderModel(m_view, m_projection,mode);
+        if (glfwGetKey(m_window->getWindow(), GLFW_KEY_H) == GLFW_RELEASE){
+            m_model->renderModel(m_view, m_projection,mode);
+        }
         m_axes->renderModel(m_view, m_projection,GL_LINES);
+        m_gradient->renderModel(m_view,m_projection,GL_POINTS);
         // update models 
         glfwSwapBuffers(m_window->getWindow());
         glfwPollEvents();

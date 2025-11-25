@@ -14,6 +14,7 @@
 #include "Model.h"
 #include "models/Axes.h"
 #include "models/Grid.h"
+#include "models/Gradient.h"
 #include "Function.h"
 #include "Exponential.h"
 #include "Trigonometric.h"
@@ -47,6 +48,10 @@ private:
      */
     Axes* m_axes;
 
+    /**
+     * El gradiente de la función
+     */
+    Gradient* m_gradient;
 
     /**
      * Matriz de la vista
