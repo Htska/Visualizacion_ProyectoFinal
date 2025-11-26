@@ -27,6 +27,7 @@ Para la función $f(x,y) = e^{-(x^2+y^2)}$ se ve:
 ![alt text](media/f2.png)
 
 Para la función $f(x,y) = \sin(10 \sqrt{x^2+y^2})\frac{1}{10}$
+![alt text](media/f3.png)
 
 Se tiene consistentemente el origen coordenado, donde el eje x es de color verde, el y de color azul y el eje z de color rojo. Además, en el plano $z=0$ se visualiza el campo escalar de la función. Al seleccionar una función, se imprime su información en terminal.
 
