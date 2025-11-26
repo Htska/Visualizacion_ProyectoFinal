@@ -48,5 +48,4 @@ Finalmente, es posible cambiar la resolución de la malla. Es decir, se tiene la
 
 ![alt text](media/resolution.gif)
 
-El mapa de color utilizado muestra los puntos más bajos de color azul, los medios de amarillo y los más altos de rojo. Para el campo esscalar, el mapa de color muesta en azul la norma del gradiente menor y en rojo la norma mayor.
-
+El mapa de color utilizado muestra los puntos más bajos de color azul, los medios de amarillo y los más altos de rojo. Para el campo escalar se utilizó el mapa de color arcoiris, el cual muestra de colores fríos los gradientes cuya norma es menor y de cálidos la que es mayor.
