@@ -22,14 +22,17 @@ private:
 
     float m_gradient_length{};
 
+    float m_new_scale{};
+
 public:
 
-    Line(ShaderProgram* program,float x,float z,Function* f,float scale): 
+    Line(ShaderProgram* program,float x,float z,Function* f,float scale,float new_scale): 
     Model(program)
     ,m_x{x}
     ,m_z{z}
     ,m_f{f}
     ,m_scale{scale}
+    ,m_new_scale{new_scale}
     {
         initGeometry();
         init();

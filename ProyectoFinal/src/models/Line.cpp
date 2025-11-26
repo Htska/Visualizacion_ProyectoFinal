@@ -4,7 +4,9 @@
  * @brief Se construye los arreglos para los vértices y para el EBO
  */
 void Line::initGeometry(){
-    vertices[0] = m_x; vertices[1] = 0.0f; vertices[2] = m_z;
+    float x = m_x*m_new_scale;
+    float z = m_z*m_new_scale;
+    vertices[0] = x; vertices[1] = 0; vertices[2] = z;
     std::vector<float> gradient = m_f->grad(m_x,m_z);
     //std::cout<<"aaaa\n";
     float dx = gradient[0];
@@ -13,7 +15,8 @@ void Line::initGeometry(){
     dx = dx/norm;
     dz = dz/norm;
     m_gradient_length = norm;
-    vertices[3] = m_x + 0.05*dx; vertices [4] = 0.0f; vertices[5] = m_z+0.05*dz;
+    //vertices[0] = m_x; vertices[1] = m_f->f(m_x,m_z); vertices[2] = m_z;
+    vertices[3] = x + 0.3*dx; vertices[4] = 0; vertices[5] = z+0.3*dz;
     //std::cout << "Los puntos x, y: " << vertices[0]<<","<<vertices[2]<<"\n";
     //std::cout << "El gradiente: " << vertices[3]<<","<<vertices[5]<<"\n";
     indices[0] = 0; indices[1] = 1;

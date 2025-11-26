@@ -19,7 +19,7 @@ void Gradient::init(){
             float new_x = ((float)x)/m_scale;
             float new_z = ((float)z)/m_scale;
             //count++;
-            Line* gradient = new Line(m_shaderProgram,new_x,new_z,m_f,m_model_scale);
+            Line* gradient = new Line(m_shaderProgram,new_x,new_z,m_f,m_model_scale,m_scale);
             m_gradients.push_back(gradient);
         }
     }

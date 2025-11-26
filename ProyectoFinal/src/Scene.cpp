@@ -16,15 +16,15 @@ void Scene::init(int selection){
      if (selection == 1){
         f = new Trigonometric();
         m_model = new Grid(m_shaderPrograms[1],10,10,f,1.0f,0.22f);//[5,5]
-        m_gradient = new Gradient(m_shaderPrograms[2],50,50,f,8.0f,0.35f);
+        m_gradient = new Gradient(m_shaderPrograms[2],100,100,f,10.0f,0.022f);
     } else if (selection == 2){
         f = new Exponential();
         m_model = new Grid(m_shaderPrograms[1],10,10,f,5.0f,0.22f);//[2,2]
-        m_gradient = new Gradient(m_shaderPrograms[2],50,50,f,25.0f,1.0f);
+        m_gradient = new Gradient(m_shaderPrograms[2],100,100,f,50.0f,0.022f);
     } else {
         f = new Cone();
         m_model = new Grid(m_shaderPrograms[1],100,100,f,100.0f,0.022f);//[1,1]
-        m_gradient = new Gradient(m_shaderPrograms[2],50,50,f,50.0f,2.0f);
+        m_gradient = new Gradient(m_shaderPrograms[2],100,100,f,100.0f,0.022f);
     }
     //m_gradient = new Gradient(m_shaderPrograms[2],50,50,f);
     //Function* g = new Exponential();
