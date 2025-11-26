@@ -28,6 +28,7 @@ add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/src/Main.cpp
                                ${PROJECT_SOURCE_DIR}/src/models/Axes.cpp
                                ${PROJECT_SOURCE_DIR}/src/models/Grid.cpp
                                ${PROJECT_SOURCE_DIR}/src/models/Gradient.cpp
+                               ${PROJECT_SOURCE_DIR}/src/models/Line.cpp
                                ${PROJECT_SOURCE_DIR}/src/Exponential.cpp
                                ${PROJECT_SOURCE_DIR}/src/Cone.cpp
                                ${PROJECT_SOURCE_DIR}/src/Trigonometric.cpp

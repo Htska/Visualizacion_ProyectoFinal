@@ -8,6 +8,8 @@
 #include <vector>
 
 #include "Model.h"
+#include "models/Line.h"
+#include "Function.h"
 
 class Gradient:public Model
 {
@@ -16,46 +18,31 @@ private:
     
     int m_width = 0;
 	int m_depth = 0; // Profundidad de la malla 
-
-    struct Vertex
-    {
-        glm::vec3 Pos; 
-        
-        /**
-         * @brief Inicializa el atributo Pos de cada Vertex 
-         */
-        void InitVertex(int x, int y, int z);
-    };
+    Function* m_f{};
+    std::vector<Line*> m_gradients;
+    float m_scale{};
+    float m_model_scale{};
+    float m_delta{};
 
     void initGeometry() override;
     
     void init() override;
     
-    /**
-     * @brief Genera una lista de triangulos que componen a cada QUAD de una grid 
-     */
-    void CreateTriangleList();
 
-    /**
-     * @brief Inicializa cada vertice de la Grid en base al width y depth  
-     * @param Vertices referencia a una lista de vertices para inicializar 
-     */
-    void InitVertices(std::vector<Vertex>& Vertices);
 
-    /**
-     * @brief Inicializa indices para los veritces de la malla  
-     * @param Vertices 
-     */
-    void InitIndices(std::vector<uint>& Indices);
 
 public: 
 
-    Gradient(ShaderProgram* program, int width, int depth) 
+    Gradient(ShaderProgram* program, int width, int depth,Function* f,float scale,float model_scale) 
         : Model(program)
         , m_width{width}
         , m_depth{depth}
+        , m_f{f}
+        , m_scale{scale}
+        , m_model_scale{model_scale}
     {
-        CreateTriangleList();
+        //std::cout << "tamañoo: "<< m_depth*m_width<<"\n";
+        init();
     }
 
     void renderModel(const glm::mat4& view, const glm::mat4& projection,GLenum mode) override;

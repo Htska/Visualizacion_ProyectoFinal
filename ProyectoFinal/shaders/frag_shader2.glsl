@@ -2,8 +2,9 @@
 // in vec3 fragColor;
 in vec3 height;
 out vec4 color;
-uniform float max;
-uniform float min;
+uniform float m_max;
+uniform float m_min;
+
 void main()
 {
     //float middle = (max+min)*0.5;
@@ -15,8 +16,7 @@ void main()
     //    float aspect = height.y/max;
     //    color = vec4(aspect,1.0-aspect,0.0,1.0);
     //}
-
-    float value = (height.y -min) / (max -min);
+    float value = (height.y -m_min) / (m_max -m_min);
 
     vec3 blue = vec3(0.0,0.0,1.0);
     vec3 yellow = vec3(1.0,1.0,0.0);

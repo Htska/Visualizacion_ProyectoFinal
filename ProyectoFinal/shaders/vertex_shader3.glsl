@@ -4,6 +4,7 @@ layout (location = 0) in vec3 position;
 
 // out vec3 fragColor;
 //out vec3 height;
+uniform float grad_length;
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;

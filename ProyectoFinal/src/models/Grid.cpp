@@ -134,8 +134,8 @@ void Grid::renderModel(const glm::mat4& view, const glm::mat4& projection,GLenum
     m_shaderProgram->setMat4x4("model", m_model_mat);
     m_shaderProgram->setMat4x4("view", view);
     m_shaderProgram->setMat4x4("projection", projection);
-    m_shaderProgram->setFloat("max",m_max);
-    m_shaderProgram->setFloat("min",m_min);
+    m_shaderProgram->setFloat("m_max",m_max);
+    m_shaderProgram->setFloat("m_min",m_min);
 
     glBindVertexArray(VAO); 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -153,14 +153,7 @@ void Grid::renderModel(const glm::mat4& view, const glm::mat4& projection,GLenum
 
 void Grid::updateModel(float deltaTime){
     //m_model_mat = glm::scale(glm::mat4(1.0f), glm::vec3(0.75f));
-    if (deltaTime == 0.0f)
-        return;
-    else if (deltaTime == 1.0f)
-        m_model_mat=glm::rotate(m_model_mat,glm::radians(0.7f), glm::vec3(1.0f, 0.0f, 0.0f));
-        else if (deltaTime == 2.0f)
-            m_model_mat=glm::rotate(m_model_mat,glm::radians(0.7f), glm::vec3(0.0f, 1.0f, 0.0f));
-        else 
-            m_model_mat=glm::rotate(m_model_mat,glm::radians(0.7f), glm::vec3(0.0f, 0.0f, 1.0f));
+    m_shaderProgram->setFloat("selection",deltaTime);
 }
 
 void Grid::finish(){

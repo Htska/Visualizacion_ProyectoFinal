@@ -1,6 +1,6 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
-
+#include <vector>
 /**
  * @class Function
  * @brief Clase para ser derivada de diversas funciones
@@ -20,6 +20,11 @@ public:
      * @brief Función para imprimir f(x)
      */
     virtual void print() = 0;
+
+    /**
+     * @brief Función que regresa el vector gradiente
+     */
+    virtual std::vector<float> grad(float x, float z) = 0;
 };
 
 
